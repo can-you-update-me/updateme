@@ -1,3 +1,6 @@
 [submodule "updateme-web"]
 	path = updateme-web
 	url = git@github.com:can-you-update-me/updateme-web.git
+[submodule "updateme-cron"]
+	path = updateme-cron
+	url = git@github.com:can-you-update-me/updateme-cron.git
