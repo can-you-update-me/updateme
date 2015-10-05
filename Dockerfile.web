@@ -1,0 +1,26 @@
+FROM rails:4.2.4
+
+WORKDIR /app
+
+VOLUME /app/tmp
+VOLUME /app/log
+
+ENV RAILS_ENV=production RACK_ENV=production
+
+COPY updateme-web/Gemfile /app/Gemfile
+COPY updateme-web/Gemfile.lock /app/Gemfile.lock
+
+RUN bundle install --jobs 4
+
+COPY updateme-web/config.ru /app/config.ru
+COPY updateme-web/Rakefile /app/Rakefile
+
+COPY updateme-web/app /app/app
+COPY updateme-web/bin /app/bin
+COPY updateme-web/config /app/config
+COPY updateme-web/db /app/db
+COPY updateme-web/lib /app/lib
+COPY updateme-web/public /app/public
+COPY updateme-web/vendor /app/vendor
+
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]

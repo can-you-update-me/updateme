@@ -1,0 +1,47 @@
+nginx:
+  image: nginx
+  links:
+   - web:web
+  volumes:
+   - ./nginx.conf:/etc/nginx/nginx.conf
+  ports:
+   - "80:80"
+   - "443:443"
+  volumes_from:
+   - updateme_data
+web:
+  build: Dockerfile.web
+  expose:
+   - "3000"
+  links:
+   - postgres:db
+   - redis:redis
+  environment:
+    RACK_ENV: development
+    RAILS_ENV: development
+  volumes:
+   - ./updateme-web:/app
+  volumes_from:
+   - updateme_data
+worker:
+  build: Dockerfile.worker
+  links:
+   - postgres:db
+   - redis:redis
+  environment:
+    RACK_ENV: development
+    RAILS_ENV: development
+  volumes:
+   - ./updateme-web:/app
+cron:
+  build: Dockerfile.cron
+  links:
+   - web:web
+postgres:
+  image: postgres
+  environment:
+    POSTGRES_PASSWORD: password
+  volumes_from:
+   - updateme_data
+redis:
+  image: redis
