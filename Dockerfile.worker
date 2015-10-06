@@ -23,5 +23,7 @@ COPY updateme-web/lib /app/lib
 COPY updateme-web/public /app/public
 COPY updateme-web/vendor /app/vendor
 
-RUN ["touch", "/amt/tmp/pids/sidekiq.pid"]
+VOLUME /app/tmp/pids
+RUN ["touch", "/app/tmp/pids/sidekiq.pid"]
+
 CMD ["bundle", "exec", "sidekiq", "-C", "config/sidekiq.yml"]

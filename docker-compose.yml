@@ -9,7 +9,7 @@ nginx:
     - "443:443"
   volumes_from:
     - updateme_data
-web:
+web: &web
   build: .
   dockerfile: Dockerfile.web
   expose:
@@ -17,7 +17,7 @@ web:
   links:
     - postgres:db
     - redis:redis
-  environment:
+  environment: &envs
     RACK_ENV: development
     RAILS_ENV: development
   volumes:
@@ -25,16 +25,9 @@ web:
   volumes_from:
     - updateme_data
 worker:
-  build: .
+  <<: *web
   dockerfile: Dockerfile.worker
-  links:
-    - postgres:db
-    - redis:redis
-  environment:
-    RACK_ENV: development
-    RAILS_ENV: development
-  volumes:
-    - ./updateme-web:/app
+  expose: []
 cron:
   build: .
   dockerfile: Dockerfile.cron
