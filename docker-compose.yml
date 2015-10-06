@@ -35,6 +35,8 @@ cron:
   dockerfile: Dockerfile.cron
   links:
     - web:web
+  volumes:
+    - ./updateme-cron:/app
 postgres:
   image: postgres
   environment:

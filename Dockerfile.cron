@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 
 COPY updateme-cron/cron.py /app/cron.py
 
-CMD ["python", "cron.py"]
+CMD ["python", "-u", "cron.py"]
