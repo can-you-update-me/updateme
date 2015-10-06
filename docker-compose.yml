@@ -10,7 +10,8 @@ nginx:
   volumes_from:
     - updateme_data
 web:
-  build: Dockerfile.web
+  build: .
+  dockerfile: Dockerfile.web
   expose:
     - "3000"
   links:
@@ -24,7 +25,8 @@ web:
   volumes_from:
     - updateme_data
 worker:
-  build: Dockerfile.worker
+  build: .
+  dockerfile: Dockerfile.worker
   links:
     - postgres:db
     - redis:redis
@@ -34,7 +36,8 @@ worker:
   volumes:
     - ./updateme-web:/app
 cron:
-  build: Dockerfile.cron
+  build: .
+  dockerfile: Dockerfile.cron
   links:
     - web:web
 postgres:
