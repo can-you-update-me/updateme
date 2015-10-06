@@ -1,0 +1,6 @@
+#!/bin/sh
+
+docker-compose kill
+docker-compose rm -fv
+
+docker rm updateme_data
