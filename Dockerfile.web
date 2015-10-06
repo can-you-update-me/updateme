@@ -23,4 +23,6 @@ COPY updateme-web/lib /app/lib
 COPY updateme-web/public /app/public
 COPY updateme-web/vendor /app/vendor
 
+EXPOSE 3000
+
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
