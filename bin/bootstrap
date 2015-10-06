@@ -1,5 +1,7 @@
 #!/bin/sh
 
+docker build -t updateme-base -f Dockerfile.base .
+
 docker create \
     -v /var/lib/postgresql/data \
     -v /app/public/assets \
