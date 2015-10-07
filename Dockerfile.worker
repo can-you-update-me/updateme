@@ -1,4 +1,4 @@
-FROM updateme-base
+FROM updateme_base
 
 VOLUME /app/tmp/pids
 RUN ["touch", "/app/tmp/pids/sidekiq.pid"]

@@ -1,4 +1,4 @@
-FROM updateme-base
+FROM updateme_base
 
 EXPOSE 3000
 

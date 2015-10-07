@@ -1,6 +1,6 @@
 #!/bin/sh
 
-docker build -t updateme-base -f Dockerfile.base .
+docker build -t updateme_base -f Dockerfile.base .
 
 docker create \
     -v /var/lib/postgresql/data \
