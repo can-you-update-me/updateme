@@ -7,20 +7,20 @@ VOLUME /app/log
 
 ENV RAILS_ENV=production RACK_ENV=production
 
-ONBUILD COPY updateme-web/Gemfile /app/Gemfile
-ONBUILD COPY updateme-web/Gemfile.lock /app/Gemfile.lock
+ONBUILD COPY web/Gemfile /app/Gemfile
+ONBUILD COPY web/Gemfile.lock /app/Gemfile.lock
 
 ONBUILD RUN bundle install --jobs 4
 
-ONBUILD COPY updateme-web/config.ru /app/config.ru
-ONBUILD COPY updateme-web/Rakefile /app/Rakefile
+ONBUILD COPY web/config.ru /app/config.ru
+ONBUILD COPY web/Rakefile /app/Rakefile
 
-ONBUILD COPY updateme-web/app /app/app
-ONBUILD COPY updateme-web/bin /app/bin
-ONBUILD COPY updateme-web/config /app/config
-ONBUILD COPY updateme-web/db /app/db
-ONBUILD COPY updateme-web/lib /app/lib
-ONBUILD COPY updateme-web/public /app/public
-ONBUILD COPY updateme-web/vendor /app/vendor
+ONBUILD COPY web/app /app/app
+ONBUILD COPY web/bin /app/bin
+ONBUILD COPY web/config /app/config
+ONBUILD COPY web/db /app/db
+ONBUILD COPY web/lib /app/lib
+ONBUILD COPY web/public /app/public
+ONBUILD COPY web/vendor /app/vendor
 
 CMD ["sh"]

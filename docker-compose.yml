@@ -23,7 +23,7 @@ web: &web
     REDIS_HOST: redis
     REDIS_PORT: 6379
   volumes:
-    - ./updateme-web:/app
+    - ./web:/app
   volumes_from:
     - updateme_data
 worker:
@@ -36,7 +36,7 @@ cron:
   links:
     - web:web
   volumes:
-    - ./updateme-cron:/app
+    - ./cron:/app
 postgres:
   image: postgres
   environment:

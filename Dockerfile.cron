@@ -2,10 +2,10 @@ FROM python:3.4.3
 
 WORKDIR /app
 
-COPY updateme-cron/requirements.txt /app/requirements.txt
+COPY cron/requirements.txt /app/requirements.txt
 
 RUN pip install -r requirements.txt
 
-COPY updateme-cron/cron.py /app/cron.py
+COPY cron/cron.py /app/cron.py
 
 CMD ["python", "-u", "cron.py"]
