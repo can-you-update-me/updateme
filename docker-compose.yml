@@ -45,3 +45,10 @@ postgres:
     - updateme_data
 redis:
   image: redis
+assets:
+  build: .
+  dockerfile: Dockerfile.assets
+  volumes:
+    - ./web/app/frontend:/var/build/input
+    - ./web/app/assets:/var/build/output
+    - ./webpack.config.js:/var/build/webpack.config.js
