@@ -5,7 +5,7 @@ VOLUME /var/build/output
 
 WORKDIR /var/build
 
-RUN touch webpack.config.json
+# Mount in your webpack.config.js
 
 RUN npm install -g webpack
 
