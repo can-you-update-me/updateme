@@ -1,18 +1,21 @@
 FROM node:4.2.1
 
+# Mount your dev assets dir
 VOLUME /var/build/input
+# Mount your assets loading dir
 VOLUME /var/build/output
 
 WORKDIR /var/build
-
-# Mount in your webpack.config.js
 
 RUN npm install -g webpack
 
 RUN npm install webpack style-loader css-loader postcss-loader \
     postcss-import postcss-simple-vars postcss-nested \
-    autoprefixer extract-text-webpack-plugin \
-    html-loader ngtemplate-loader \
-    babel-loader ng-annotate-loader
+    autoprefixer extract-text-webpack-plugin eslint-loader \
+    html-loader ngtemplate-loader ng-annotate-loader \
+    babel-loader babel-core babel-preset-es2015
+
+COPY webpack.config.js /var/build/webpack.config.js
+COPY .eslintrc /var/build/.eslintrc
 
 CMD ["webpack", "--colors", "--progress", "-d", "--watch"]
