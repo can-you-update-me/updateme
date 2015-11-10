@@ -1,6 +1,10 @@
 #!/bin/sh
 
-docker build -t updateme_base -f Dockerfile.base .
+docker build \
+    -t updateme_base \
+    --build-arg runtime_env=development \
+    --build-arg bundle_without=production \
+    -f Dockerfile.base .
 
 docker create \
     -v /var/lib/postgresql/data \
