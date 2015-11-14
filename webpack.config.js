@@ -43,7 +43,7 @@ module.exports = {
     configFile: './.eslintrc',
     emitWarning: true,
     emitError: true,
-    failOnWarning: true,
+    failOnWarning: false,
     failOnError: true
   },
   postcss: (webpack) => [
