@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --colors --progress -d --watch",
+    "compile": "webpack -p"
+  },
+  "dependencies": {
+    "webpack": "latest",
+    "style-loader": "latest",
+    "css-loader": "latest",
+    "postcss-loader": "latest",
+    "postcss-import": "latest",
+    "postcss-simple-vars": "latest",
+    "postcss-nested": "latest",
+    "autoprefixer": "latest",
+    "extract-text-webpack-plugin": "latest",
+    "eslint": "latest",
+    "eslint-loader": "latest",
+    "html-loader": "latest",
+    "ngtemplate-loader": "latest",
+    "ng-annotate-loader": "latest",
+    "babel-loader": "latest",
+    "babel-core": "latest",
+    "babel-preset-es2015": "latest"
+  }
+}

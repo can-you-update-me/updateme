@@ -1,4 +1,4 @@
-FROM node:4.2.1
+FROM node:5.0.0
 
 # Mount your dev assets dir
 VOLUME /var/build/input
@@ -7,15 +7,11 @@ VOLUME /var/build/output
 
 WORKDIR /var/build
 
-RUN npm install -g webpack
+COPY package.json /var/build/package.json
 
-RUN npm install webpack style-loader css-loader postcss-loader \
-    postcss-import postcss-simple-vars postcss-nested \
-    autoprefixer extract-text-webpack-plugin eslint-loader \
-    html-loader ngtemplate-loader ng-annotate-loader \
-    babel-loader babel-core babel-preset-es2015
+RUN npm install
 
 COPY webpack.config.js /var/build/webpack.config.js
 COPY .eslintrc /var/build/.eslintrc
 
-CMD ["webpack", "--colors", "--progress", "-d", "--watch"]
+CMD npm run dev
