@@ -30,13 +30,9 @@ worker:
   <<: *web
   dockerfile: Dockerfile.worker
   expose: []
-cron:
-  build: .
-  dockerfile: Dockerfile.cron
-  links:
-    - web:web
-  volumes:
-    - ./cron:/app
+  environment:
+    <<: *envs
+    scout_cron: "* * * * *"
 postgres:
   image: postgres
   environment:
