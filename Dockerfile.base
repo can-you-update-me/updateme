@@ -3,7 +3,7 @@ FROM rails:4.2.4
 ARG runtime_env=production
 ARG bundle_without="development test"
 
-ENV RAILS_ENV=$runtime_env RACK_ENV=$runtime_env
+ENV RAILS_ENV=$runtime_env RACK_ENV=$runtime_env BUNDLE_WITHOUT=$bundle_without
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ VOLUME /app/log
 
 ONBUILD COPY web/Gemfile /app/Gemfile
 ONBUILD COPY web/Gemfile.lock /app/Gemfile.lock
-ONBUILD RUN bundle install --jobs 4 --without $bundle_without
+ONBUILD RUN bundle install --jobs 4 --without $BUNDLE_WITHOUT
 
 ONBUILD COPY web/config.ru /app/config.ru
 ONBUILD COPY web/Rakefile /app/Rakefile
