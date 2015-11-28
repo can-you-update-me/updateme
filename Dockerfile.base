@@ -1,4 +1,4 @@
-FROM rails:4.2.4
+FROM rails:4.2.5
 
 ARG runtime_env=production
 ARG bundle_without="development test"
