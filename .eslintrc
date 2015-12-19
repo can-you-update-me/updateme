@@ -19,6 +19,7 @@
     "no-use-before-define": 2,
     "no-else-return": 2,
     "no-unused-expressions": [2, { "allowShortCircuit": true }],
+    "no-unused-vars": [2, {"args": "after-used", "varsIgnorePattern": "^_", "argsIgnorePattern": "^_"}],
     "no-const-assign": 2,
     "no-dupe-class-members": 2,
     "no-this-before-super": 2,
