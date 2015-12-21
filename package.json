@@ -13,7 +13,7 @@
     "postcss-import": "latest",
     "postcss-simple-vars": "latest",
     "postcss-nested": "latest",
-    "autoprefixer": "latest",
+    "autoprefixer": "^6.2.1",
     "extract-text-webpack-plugin": "latest",
     "eslint": "^1.10.1",
     "eslint-loader": "^1.1.1",
