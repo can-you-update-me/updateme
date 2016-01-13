@@ -1,4 +1,4 @@
-FROM node:5.1.1
+FROM node:5.4.0
 
 # Mount your dev assets dir
 VOLUME /var/build/input
