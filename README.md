@@ -1,5 +1,8 @@
 # updateme
 
+## Projact abandoned
+because I discovered [http://libraries.io/](http://libraries.io/) haha.
+
 ## Motivation
 - I like to be notified when some legacy projects finally release a new version
 - I like to stay on top of some frequently updating projects
